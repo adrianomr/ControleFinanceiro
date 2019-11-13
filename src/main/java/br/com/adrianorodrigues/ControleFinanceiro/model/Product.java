@@ -3,17 +3,17 @@ package br.com.adrianorodrigues.ControleFinanceiro.model;
 import javax.persistence.*;
 
 @Entity
-@Table(name = "shopping_item")
-public class ShoppingItem {
+@Table(name = "product")
+public class Product {
     @Id
     @GeneratedValue
     private Long id;
 
     @Column(columnDefinition = "varchar(100)")
-    private String descricao;
+    private String description;
 
     @Column(columnDefinition = "numeric(20,4)")
-    private Double valor;
+    private Double value;
 
     public Long getId() {
         return id;
@@ -23,19 +23,19 @@ public class ShoppingItem {
         this.id = id;
     }
 
-    public String getDescricao() {
-        return descricao;
+    public String getDescription() {
+        return description;
     }
 
-    public void setDescricao(String descricao) {
-        this.descricao = descricao;
+    public void setDescription(String description) {
+        this.description = description;
     }
 
-    public Double getValor() {
-        return valor;
+    public Double getValue() {
+        return value;
     }
 
-    public void setValor(Double valor) {
-        this.valor = valor;
+    public void setValue(Double value) {
+        this.value = value;
     }
 }
