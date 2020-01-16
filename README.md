@@ -30,12 +30,15 @@ INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 3.511254
 
 
 
- select 
+CREATE VIEW buy_average_value AS
+    select 
  papers.id, 
  papers.name, 
- SUM(CASE WHEN transactions_types.id = 1 THEN transactions.value ELSE -transactions.value END) as average_value,
-  SUM(CASE WHEN transactions_types.id = 1 THEN transactions.quantity ELSE -transactions.quantity END)  as average_quantity
+ SUM(transactions.value * transactions.quantity) as total_value,
+ SUM(transactions.quantity)  as total_quantity,
+ SUM(transactions.value * transactions.quantity)/SUM(transactions.quantity) as buy_average_value 
  from transactions 
  left join papers on papers.id = transactions.papers_id
  left join transactions_types on transactions_types.id = transactions.transactions_types_id
+ where transactions_types_id = 1
  group by papers.id, papers.id;
