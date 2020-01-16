@@ -50,7 +50,8 @@ group by papers.id, papers.name;
 
 
 CREATE VIEW dividend_yeld AS
-select buy_average_value.id, buy_average_value.name, total_provents.total_provents/buy_average_value.total_value as DY from buy_average_value left join total_provents on total_provents.id = buy_average_value.id;
+select buy_average_value.id, buy_average_value.name, (total_provents.total_provents/buy_average_value.total_value)*100 as DY from buy_average_value left join total_provents on total_provents.id = buy_average_value.id;
+
 
 
  
