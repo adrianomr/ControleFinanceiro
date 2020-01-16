@@ -27,3 +27,15 @@ INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 1);
 INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 2);
 INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 2.3);
 INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 3.511254);
+
+
+
+ select 
+ papers.id, 
+ papers.name, 
+ SUM(CASE WHEN transactions_types.id = 1 THEN transactions.value ELSE -transactions.value END) as average_value,
+  SUM(CASE WHEN transactions_types.id = 1 THEN transactions.quantity ELSE -transactions.quantity END)  as average_quantity
+ from transactions 
+ left join papers on papers.id = transactions.papers_id
+ left join transactions_types on transactions_types.id = transactions.transactions_types_id
+ group by papers.id, papers.id;
