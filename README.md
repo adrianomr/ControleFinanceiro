@@ -13,7 +13,17 @@ CREATE TABLE transactions (id serial NOT NULL, transactions_types_id int not nul
 CREATE TABLE provents_types (id serial NOT NULL, sigla varchar(100), description varchar(100), PRIMARY KEY (id));
 CREATE TABLE provents (id serial NOT NULL, provents_types_id int not null references provents_types , papers_id int not null references papers , value NUMERIC(12,6) NOT NULL, PRIMARY KEY (id));
 INSERT INTO papers (name, description) VALUES('ITSA4', 'ITAUSA');
+INSERT INTO papers (name, description) VALUES('KNRI11', 'KINEA RENDA IMOBILIÁRIA');
 INSERT INTO transactions_types (sigla, description) VALUES('C', 'Compra');
+INSERT INTO transactions_types (sigla, description) VALUES('V', 'Venda');
 INSERT INTO transactions (transactions_types_id, papers_id, value, quantity) VALUES(1, 1, 10, 1);
+INSERT INTO transactions (transactions_types_id, papers_id, value, quantity) VALUES(1, 1, 12, 1);
+INSERT INTO transactions (transactions_types_id, papers_id, value, quantity) VALUES(1, 2, 15.13, 2);
+INSERT INTO transactions (transactions_types_id, papers_id, value, quantity) VALUES(2, 2, 16.11, 1);
+INSERT INTO transactions (transactions_types_id, papers_id, value, quantity) VALUES(1, 2, 13.157864, 3);
 INSERT INTO provents_types (sigla, description) VALUES('DI', 'Dividendo');
+INSERT INTO provents_types (sigla, description) VALUES('JCP', 'Juros sobre Capital Próprio');
 INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 1);
+INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 2);
+INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 2.3);
+INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 3.511254);
