@@ -15,3 +15,5 @@ CREATE TABLE provents (id serial NOT NULL, provents_types_id int not null refere
 INSERT INTO papers (name, description) VALUES('ITSA4', 'ITAUSA');
 INSERT INTO transactions_types (sigla, description) VALUES('C', 'Compra');
 INSERT INTO transactions (transactions_types_id, papers_id, value) VALUES(1, 1, 10);
+INSERT INTO provents_types (sigla, description) VALUES('DI', 'Dividendo');
+INSERT INTO provents (provents_types_id, papers_id, value) VALUES(1, 1, 1);
