@@ -42,3 +42,8 @@ CREATE VIEW buy_average_value AS
  left join transactions_types on transactions_types.id = transactions.transactions_types_id
  where transactions_types_id = 1
  group by papers.id, papers.id;
+ 
+ CREATE VIEW dividends AS
+select papers.id, papers.name, sum(value) as total_provents from provents
+left join papers on papers.id = provents.papers_id
+group by papers.id, papers.name;
